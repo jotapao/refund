@@ -4,6 +4,9 @@ const amount = document.getElementById("amount")
 const expense = document.getElementById("expense")
 const category = document.getElementById("category")
 
+//Seleciona o elemento da lista de despesas
+const expenseList = document.querySelector("ul")
+
 
 //obtém o valor atual do input e remove os caracteres não numéricos
 amount.oninput = () => {
@@ -55,8 +58,21 @@ form.onsubmit = (event) => {
         //Cria o elemento de (li) para adicionar o ítem na lista de despesas.
         const expenseItem = document.createElement("li")
         expenseItem.classList.add("expense")
-    } catch (error) {
-        alert("Não foi possível atualizar a lista de despesas")
+
+        //Cria o ícone da categoria
+        const expenseIcon = document.createElement("img")
+        expenseIcon.setAttribute("src", `img/${newExpense.category_id}.svg`)
+        expenseIcon.setAttribute("alt", newExpense.category_name)
+
+        //adiciona as informações no ítem
+        expenseItem.append(expenseIcon)
+        //Adiciona o ítem na lista
+        expenseList.append(expenseItem) 
+    }
+
+     catch (error) {
+        alert ("Não foi possível atualizar a lista de despesas.")
+        console.log(error)
         
     }
  }
