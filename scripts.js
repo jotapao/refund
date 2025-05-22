@@ -1,5 +1,8 @@
 //seleciona os elementos do formulário
+cosnt form = document.querySelector("form")
 const amount = document.getElementById("amount")
+const expense = document.getElementById("expense")
+const category = document.getElementById("category")
 
 
 //obtém o valor atual do input e remove os caracteres não numéricos
@@ -14,8 +17,8 @@ amount.oninput = () => {
 
 }
 
+//Formata o valor para o padrão brasileiro
 function formatCurrencyBRL(value) {
-    //Formata o valor para o padrão brasileiro
     value = value.toLocaleString("pt-BR", {
         style: "currency",
         currency: "BRL",
@@ -23,4 +26,8 @@ function formatCurrencyBRL(value) {
 })
 //Retorna o valor formatado
     return value
+}
+
+form.onsubmit = (event) => {
+    event.preventDefault()
 }
