@@ -50,9 +50,7 @@ form.onsubmit = (event) => {
   expenseAdd(newExpense) 
 
  }
-
-     
-
+ 
  function expenseAdd(newExpense) {
     try {
         //Cria o elemento de (li) para adicionar o ítem na lista de despesas.
@@ -79,8 +77,14 @@ form.onsubmit = (event) => {
         //Adciona nome e categoria da despesa
         expenseInfo.append(expenseName, expenseCategory)
 
+        //cria o valor da despesa
+        const expenseAmount = document.createElement("span")
+        expenseAmount.classList.add("expense-amount")
+        expenseAmount.innerHTML = `<span>R$</span>${newExpense.amount.toUpperCase()
+        .replace("R$", "") }`
+
         //adiciona as informações no ítem
-        expenseItem.append(expenseIcon, expenseInfo)
+        expenseItem.append(expenseIcon, expenseInfo, expenseAmount)
 
         //Adiciona o ítem na lista
         expenseList.append(expenseItem) 
