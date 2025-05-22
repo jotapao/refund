@@ -64,8 +64,24 @@ form.onsubmit = (event) => {
         expenseIcon.setAttribute("src", `img/${newExpense.category_id}.svg`)
         expenseIcon.setAttribute("alt", newExpense.category_name)
 
+        //Cria a informação da despesa
+        const expenseInfo = document.createElement("div")
+        expenseInfo.classList.add("expense-info")
+
+        //Cria o nome da despesa
+        const expenseName = document.createElement("strong")
+         expenseName.textContent = newExpense.expense
+
+        //Cria a categoria da despesa
+        const expenseCategory = document.createElement ("span")
+        expenseCategory.textContent = newExpense.category_name
+
+        //Adciona nome e categoria da despesa
+        expenseInfo.append(expenseName, expenseCategory)
+
         //adiciona as informações no ítem
-        expenseItem.append(expenseIcon)
+        expenseItem.append(expenseIcon, expenseInfo)
+
         //Adiciona o ítem na lista
         expenseList.append(expenseItem) 
     }
