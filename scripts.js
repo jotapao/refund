@@ -28,11 +28,11 @@ function formatCurrencyBRL(value) {
     return value
 }
 
-//Adiciona um evento de submit ao formulário
+//Adiciona um evento de submit ao formulário e previne o comportamento padrão de recarregar a página
 form.onsubmit = (event) => {
-    //previne o comportamento padrão de recarregar a página
+
     event.preventDefault()
-    
+
     //Cria um novo objeto de despesa
     const newExpense = {
         id: new Date().getTime(),
@@ -41,5 +41,19 @@ form.onsubmit = (event) => {
         category_name: category.options[category.selectedIndex].text,
         amount: amount.value,
         creted_at: new Date(),
-}
+} 
+
+//Chama a função que irá adicionar o ítem na lista de despesas
+  expenseAdd(newExpense) 
+
+ }
+
+     
+
+ function expenseAdd(newExpense) {
+    try {
+    } catch (error) {
+        alert("Não foi possível atualizar a lista de despesas")
+        
+    }
  }
