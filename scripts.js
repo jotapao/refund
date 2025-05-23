@@ -83,8 +83,14 @@ form.onsubmit = (event) => {
         expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount.toUpperCase()
         .replace("R$", "") }`
 
+        //Cria o ícone de remover a despesa
+        const removeIcon = document.createElement("img")
+        removeIcon.classList.add("remove-icon")
+        removeIcon.setAttribute("src", "img/remove.svg")
+        removeIcon.setAttribute("alt", "Remover")
+
         //adiciona as informações no ítem
-        expenseItem.append(expenseIcon, expenseInfo, expenseAmount)
+        expenseItem.append(expenseIcon, expenseInfo, expenseAmount, removeIcon)
 
         //Adiciona o ítem na lista
         expenseList.append(expenseItem) 
