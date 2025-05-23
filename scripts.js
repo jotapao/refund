@@ -98,6 +98,9 @@ form.onsubmit = (event) => {
         //Adiciona o ítem na lista
         expenseList.append(expenseItem) 
 
+        //limpa os campos do formulário para adicionar uma nova despesa
+        formClear()
+
         //Atualiza os totais
         updateTotals()
     }
@@ -185,4 +188,15 @@ form.onsubmit = (event) => {
          updateTotals()
 
         })
+
+        function formClear() {
+            //Limpa os campos do formulário
+            expense.value = ""
+            category.value = ""
+            amount.value = ""
+
+           //Foco no input amount
+            expense.focus()
+
+        }
  
