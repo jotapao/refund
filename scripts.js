@@ -144,7 +144,21 @@ form.onsubmit = (event) => {
        total += Number(value)
      }
 
-      expensesTotal.textContent = total
+     //Cria a span para adicionar o R$ formatado
+        const symbolBRL = document.createElement("small")
+        symbolBRL.textContent = "R$"
+
+        //Formata o valor total
+        total = formatCurrencyBRL(total).toUpperCase().replace("R$", "")
+
+        //Limpa o conteúdo do elemento
+         expensesTotal.innerHTML = ""
+
+         //Adiciona o símbolo da moeda e o valor total formatado 
+          expensesTotal.append(symbolBRL, total)
+
+
+
 
     } catch (error) {
        concole.log(error)
