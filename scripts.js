@@ -80,7 +80,7 @@ form.onsubmit = (event) => {
         //cria o valor da despesa
         const expenseAmount = document.createElement("span")
         expenseAmount.classList.add("expense-amount")
-        expenseAmount.innerHTML = `<span>R$</span>${newExpense.amount.toUpperCase()
+        expenseAmount.innerHTML = `<small>R$</small>${newExpense.amount.toUpperCase()
         .replace("R$", "") }`
 
         //adiciona as informações no ítem
