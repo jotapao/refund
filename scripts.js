@@ -167,11 +167,22 @@ form.onsubmit = (event) => {
     }
 }
 
-//Evento que captura o clique no ícone de remover itens da lista
-expenseList.addEventListener("click", function (event) {
+   //Evento que captura o clique no ícone de remover itens da lista
+   expenseList.addEventListener("click", function (event) {
+
     //Verifica se o elemento clicado é o ícone de remover
     if (event.target.classList.contains("remove-icon")) {
-        console.log("event")
+
+        //Obtem o elemento pai (li) do ícone de remover
+        const item = event.target.closest(".expense")
+
+        //Remove o ítem da lista
+        item.remove()
+        
          }
+
+        //Atualiza os totais
+         updateTotals()
+
         })
  
