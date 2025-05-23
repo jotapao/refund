@@ -6,6 +6,7 @@ const category = document.getElementById("category")
 
 //Seleciona o elemento da lista de despesas
 const expenseList = document.querySelector("ul")
+const expensesTotal = document.querySelector("aside header h2")
 const expsensesQuantity = document.querySelector("aside header p span")
 
 
@@ -126,11 +127,29 @@ form.onsubmit = (event) => {
     //Percorre todos os itens da lista de despesas
     for (let item = 0; item < items.length; item++) {
         const itemAmount = items[item].querySelector(".expense-amount")
-    }
+
+        //Remove cáracteres não numéricos e substitui a vírgula por ponto
+        let value = itemAmount.textContent.replace(/[^\d,]/g, "").replace(",", ".")
         
+
+        // Converte o valor para float
+        value = parseFloat(value) 
+
+        //Verifica se o valor é um número
+        if (isNaN(value)) {
+        return alert("Não foi possível atualizar o total, o valor não parece ser um número.")
+    }
+
+    //Incrementa o valor total
+       total += Number(value)
+     }
+
+      expensesTotal.textContent = total
+
     } catch (error) {
-       
+       concole.log(error)
         alert("Não foi possível atualizar os totais.")
         
     }
 }
+ 
